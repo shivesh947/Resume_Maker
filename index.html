@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  	body{
+  		padding: 30px;
+  		border:2px solid black;
+  		min-height: 100vh;
+  	}
+  	#resume{
+  		display: none;
+  	}
+  	.insidedata
+  	{
+  		margin-left: 30px;
+  	}
+  	p{
+  		font-size: 20px;
+  	}
+  	h4{
+  		font-size: 25px;
+  	}
+  	h1{
+  		font-size: 45px;
+  	}
+  </style>
+  <script type="text/javascript">
+  	function submitform(){
+  		let name=document.getElementById('name').value;
+  		let email=document.getElementById('Email').value;
+  		let pno=document.getElementById('pno').value;
+  		let link=document.getElementById('lno').value;
+
+  		let obj=document.getElementById('Objective').value;
+
+  		let exp="";
+  		for(var i=1;i<=3;i++)
+  		{
+  			var h=document.getElementById('Experencehead'+i).value;
+  			var b=document.getElementById('Experence'+i).value;
+  			if(h&&b)
+  			  exp='<p><big><b>'+h+'</b></big></p><p>'+b+'</p>'+exp;
+
+  		}
+
+  		let edu="";
+  		for(var i=1;i<=3;i++)
+  		{
+  			var eduh=document.getElementById('Educationhead'+i).value;
+  			var edub=document.getElementById('Education'+i).value;
+  			if(eduh&&edub)
+  			  edu=edu+'<p><big><b>'+eduh+'</b></big></p><p>'+edub+'</p>';
+  		}
+  		
+
+  		let award="";
+  		for(var i=1;i<=3;i++)
+  		{
+  			var awardh=document.getElementById('Awardhead'+i).value;
+  			var awardb=document.getElementById('Award'+i).value;
+  			if(awardh&&awardb)
+  			  award=award+'<p><big><b>'+i+'. '+awardh+'</b></big></p><p>'+awardb+'</p></br>';
+  		}
+
+  		document.getElementById('form').style.display="none";
+  		document.getElementById('resume').style.display="block";
+
+  		document.getElementById('fillname').innerHTML=name;
+  		document.getElementById('fillemail').innerHTML=email;
+  		document.getElementById('fillpno').innerHTML=pno;
+  		document.getElementById('filllink').innerHTML=link;
+
+  		document.getElementById('fillobj').innerHTML=obj;
+  		document.getElementById('fillExp').innerHTML=exp;
+  		document.getElementById('filleducation').innerHTML=edu;
+  		document.getElementById('fillAwards').innerHTML=award;
+
+
+  	}
+  </script>
+</head>
+<body>
+	<div id="form">
+		<div class="container">
+  <h2>Resume Form</h2>
+
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" class="form-control" id="name" placeholder="name" maxlength="20">
+      <label>Email:</label>
+      <input type="text" class="form-control" id="Email" placeholder="Email" maxlength="50">
+      <label>Phone number:</label>
+      <input type="text" class="form-control" id="pno" placeholder="Phone number" maxlength="10">
+      <label>other link:</label>
+      <input type="text" class="form-control" id="lno" placeholder="link">
+    </div>
+    
+     <div class="form-group">
+      <label>Objective:</label>
+      <textarea class="form-control" id="Objective" placeholder="Objective"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Education:</label>
+      <textarea class="form-control" placeholder="Education Title 1" id="Educationhead1" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Education body 1" id="Education1"></textarea>
+      <textarea class="form-control" placeholder="Education Title 2" id="Educationhead2" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Education body 2" id="Education2"></textarea>
+      <textarea class="form-control" placeholder="Education Title 3" id="Educationhead3" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Education body 3" id="Education3"></textarea>
+    </div>
+
+     <div class="form-group">
+      <label>Experence:</label>
+      <textarea class="form-control" placeholder="Experence Title 1" id="Experencehead1" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Experence body 1" id="Experence1"></textarea>
+      <textarea class="form-control" placeholder="Experence Title 2" id="Experencehead2" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Experence body 2" id="Experence2"></textarea>
+      <textarea class="form-control" placeholder="Experence Title 3" id="Experencehead3" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Experence body 3" id="Experence3"></textarea>
+    </div>
+
+     <div class="form-group">
+      <label>Award:</label>
+      <textarea class="form-control" placeholder="Award Title 1" id="Awardhead1" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Award body 1" id="Award1"></textarea>
+      <textarea class="form-control" placeholder="Award Title 2" id="Awardhead2" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Award body 2" id="Award2"></textarea>
+      <textarea class="form-control" placeholder="Award Title 3" id="Awardhead3" maxlength="50"></textarea>
+      <textarea class="form-control" placeholder="Award body 3" id="Award3"></textarea>
+    </div>
+
+    <button type="button" onclick="submitform()" class="btn btn-primary">Submit</button>
+
+</div>
+	</div>
+	<div id="resume">
+		<h1 id="fillname" style="font-variant: all-petite-caps;"></h1>
+		<div style="margin-left: 25px;">
+		<small style="font-size: 18px">
+			<p id="fillemail"></p>
+			<p id="fillpno"></p>
+			<p id="filllink"></p>
+
+		</small>
+		</div>
+		<h4><b>Objective</b></h4>
+		<p class="insidedata" id="fillobj"></p>
+		<h4><b>Experence</b></h4>
+		<p class="insidedata" id="fillExp"></p>
+		<h4><b>Education</b></h4>
+		<p class="insidedata" id="filleducation"></p>
+		<h4><b>Awards & Acknowledgments</b></h4>
+		<p class="insidedata" id="fillAwards"></p>
+	<button onclick="myFunction()" id="buts">Print this page</button>
+		
+	</div>
+
+<script>
+function myFunction() {
+  document.getElementById('buts').style.display="none";
+  window.print();
+  document.getElementById('buts').style.display="block";
+
+}
+</script>
+</body>
+</html>
